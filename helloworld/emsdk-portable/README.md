@@ -185,7 +185,7 @@ If you want to remove a Portable SDK, just delete the directory where you put th
 
 * On Windows, if you want to build any of the packages from source (instead of using the precompiled ones), you will need git, CMake and Visual Studio 2015. Git can be installed via emsdk by typing "emsdk install git-1.9.4", CMake can be found from http://www.cmake.org/, and Visual Studio can be installed from https://www.visualstudio.com.
 
-###### How do I run Emscripten on a 32-bit Windows?
+##### How do I run Emscripten on a 32-bit Windows?
 
 Emscripten SDK releases are no longer packaged or maintained for 32-bit Windows. If you want to run Emscripten on a 32-bit system, you can try manually building the compiler for 32-bit mode. Follow the steps in the above section "Building an Emscripten tag or branch from source" to get started.
 

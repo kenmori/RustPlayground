@@ -1622,9 +1622,9 @@ function integrateWasmJS(Module) {
   var method = Module['wasmJSMethod'] || 'native-wasm';
   Module['wasmJSMethod'] = method;
 
-  var wasmTextFile = Module['wasmTextFile'] || 'hello.wast';
-  var wasmBinaryFile = Module['wasmBinaryFile'] || 'hello.wasm';
-  var asmjsCodeFile = Module['asmjsCodeFile'] || 'hello.asm.js';
+  var wasmTextFile = Module['wasmTextFile'] || 'macro.wast';
+  var wasmBinaryFile = Module['wasmBinaryFile'] || 'macro.wasm';
+  var asmjsCodeFile = Module['asmjsCodeFile'] || 'macro.asm.js';
 
   if (typeof Module['locateFile'] === 'function') {
     wasmTextFile = Module['locateFile'](wasmTextFile);
@@ -2002,7 +2002,7 @@ STATICTOP = STATIC_BASE + 16640;
 /* global initializers */  __ATINIT__.push();
 
 
-memoryInitializer = Module["wasmJSMethod"].indexOf("asmjs") >= 0 || Module["wasmJSMethod"].indexOf("interpret-asm2wasm") >= 0 ? "hello.js.mem" : null;
+memoryInitializer = Module["wasmJSMethod"].indexOf("asmjs") >= 0 || Module["wasmJSMethod"].indexOf("interpret-asm2wasm") >= 0 ? "macro.html.mem" : null;
 
 
 

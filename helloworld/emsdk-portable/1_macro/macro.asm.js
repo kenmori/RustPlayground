@@ -184,7 +184,7 @@ function __ZN4core3fmt9Arguments6new_v117h4c4cd097f4293f4bE($0,$1,$2,$3,$4) {
  store4($8,$4);
  STACKTOP = sp;return;
 }
-function __ZN5hello4main17he0456e9afe624279E() {
+function __ZN5macro4main17he9b1fba0010a4885E() {
  var $0 = 0, $1 = 0, $_1 = 0, label = 0, sp = 0;
  sp = STACKTOP;
  STACKTOP = STACKTOP + 32|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(32|0);
@@ -22986,7 +22986,7 @@ var FUNCTION_TABLE_ii = [b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,b
 var FUNCTION_TABLE_ji = [b5,b5,b5,b5,b5,b5,__ZN36__LT_T_u20_as_u20_core__any__Any_GT_11get_type_id17h83699e1f122415a3E,b5,b5,b5,b5,b5,b5,b5,b5,b5,b5,b5,b5,__ZN3std5error5Error7type_id17h138df096e7b1838bE,b5,b5,b5,b5,b5,b5,b5,b5,b5
 ,b5,b5,__ZN36__LT_T_u20_as_u20_core__any__Any_GT_11get_type_id17h36e58845ef9b89c1E];
 var FUNCTION_TABLE_v = [b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6
-,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,__ZN5alloc3oom19default_oom_handler17h4c1791f3bab1fe02E,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,__ZN5hello4main17he0456e9afe624279E,b6,b6
+,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,__ZN5alloc3oom19default_oom_handler17h4c1791f3bab1fe02E,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,__ZN5macro4main17he9b1fba0010a4885E,b6,b6
 ,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,__ZN4core6result13unwrap_failed17h8f4bf992b7c0cf7dE,b6,b6,b6,b6,b6,b6,b6,__ZN5alloc3oom3oom17hbd871bdadbd796fdE,b6,b6,b6,b6,__ZN4core6result13unwrap_failed17hbb56895564de1adeE,b6,b6,b6
 ,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,b6,__ZN3std6thread4park17h74d50467bebc0182E,b6
 ,__ZN3std3sys3imp4init11oom_handler17h2add859f55990f7cE,b6,b6,b6,b6,b6,b6,b6,b6];
