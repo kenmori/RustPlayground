@@ -1,9 +1,11 @@
 macro_rules! say_hello {
     () => (
-        println!("here is Macro");
+        println!("here fafa Macro");
     )
 }
 
 fn main(){
     say_hello!()
 }
+
+
