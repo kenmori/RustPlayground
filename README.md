@@ -110,7 +110,7 @@ Both worlds have to learn from each other to make the most of this.(両方の世
 
 ## 参照
 
-[hellorust.com](https://www.hellorust.com/codemotion-ams/slides/)
+[hellorust.com](https://www.hellorust.com/)
 
 [WebAssembly](http://webassembly.org/)
 
