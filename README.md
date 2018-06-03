@@ -118,7 +118,7 @@ Both worlds have to learn from each other to make the most of this.(両方の世
 
 [Rustを使って遊ぶ](https://www.hellorust.com/)
 
-[RustBook](https://doc.rust-lang.org/book/first-edition/README.html)
+[RustBook](https://doc.rust-lang.org/book/index.html)
 
 
 ## ---wip--
