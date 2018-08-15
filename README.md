@@ -1,4 +1,5 @@
 # RustPlayground
+https://doc.rust-lang.org/stable/book/2018-edition/ch01-01-installation.html
 
 #download
 curl https://sh.rustup.rs -sSf | sh
