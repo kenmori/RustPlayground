@@ -20,6 +20,28 @@ rustc main.rs
 ./main
 
 
+# Cargo
+CargoはRustのビルドシステムでパッケージマネージャー
+ほとんどのRustプログラマーはこのツールを使ってプロジェクト管理をしています
+コードの構築、コードが依存するライブラリのダウンロード、それらのライブラリの構築、
+等多くのタスクを処理します
+先ほどのコードはCargoの一部部分を使用したが、もっと複雑になると依存関係が追加され、Cargoを追加した方が
+はるかに解決しやすくなります
+
+## check
+
+```
+cargo --version
+```
+
+### Creating a Project with Cargo
+
+cargoでプロジェクトを作る
+
+```
+cargo new hello_cargo
+cd hello_cargo
+```
 
 # WebAssemblyについて
 
