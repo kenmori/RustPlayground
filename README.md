@@ -1,34 +1,27 @@
 # RustPlayground
-https://doc.rust-lang.org/stable/book/2018-edition/ch01-01-installation.html
+[document](https://doc.rust-lang.org/stable/book/2018-edition/ch01-01-installation.html)
 
 #download
 curl https://sh.rustup.rs -sSf | sh
 
 # update
-source $HOME/.cargo/env
+rustup update
 
 # comfirm
 rustc --version
 
+# getting start
+cd hello_world
+
 # compile
 rustc main.rs
 
-# out
+# run
 ./main
 
---add 2017/06/11
-ref https://kripken.github.io/emscripten-site/docs/tools_reference/emsdk.html#emsdk-howto
-
-cd emsdk-portable
-create .rs file
-
-#compile
-rustc --target=wasm32-unknown-emscripten hello.rs -o hello.html
-rustc --target=wasm32-unknown-emscripten hello.rs -o hello.js
 
 
-
-WebAssemblyについて
+# WebAssemblyについて
 
 
 
