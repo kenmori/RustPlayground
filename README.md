@@ -1,33 +1,85 @@
 # RustPlayground
+[document](https://doc.rust-lang.org/stable/book/2018-edition/ch01-01-installation.html)
 
 #download
 curl https://sh.rustup.rs -sSf | sh
 
 # update
-source $HOME/.cargo/env
+rustup update
 
 # comfirm
 rustc --version
 
+# getting start
+cd hello_world
+
 # compile
 rustc main.rs
 
-# out
+# run
 ./main
 
---add 2017/06/11
-ref https://kripken.github.io/emscripten-site/docs/tools_reference/emsdk.html#emsdk-howto
 
-cd emsdk-portable
-create .rs file
+# Cargo
+CargoはRustのビルドシステムでパッケージマネージャー
+ほとんどのRustプログラマーはこのツールを使ってプロジェクト管理をしています
+コードの構築、コードが依存するライブラリのダウンロード、それらのライブラリの構築、
+等多くのタスクを処理します
+先ほどのコードはCargoの一部部分を使用したが、もっと複雑になると依存関係が追加され、Cargoを追加した方が
+はるかに解決しやすくなります
 
-#compile
-rustc --target=wasm32-unknown-emscripten hello.rs -o hello.html
-rustc --target=wasm32-unknown-emscripten hello.rs -o hello.js
+## check
+
+```
+cargo --version
+```
+
+### Creating a Project with Cargo
+
+cargoでプロジェクトを作る
+
+```
+cargo new hello_cargo
+cd hello_cargo
+```
+これで作られたファイルは
+
+Cargo.toml
+src/main.rc
+
+### build
+cargo を使ってbuildする
+
+```
+cargo build
+```
+実行できるファイルが生成されるので
+
+```
+./target/debug/hello_cargo
+```
+で実行すると
+```
+Hello, world!
+```
+
+cargo run
+で一回でそれらをやることができる
+
+cargo check
+実行ファイルを生成しないビルドが走る
+その分速いのでコードを書いて、開発過程で使うと便利
+実行はしない
+
+多くの開発者は
+コンパイルできるかcheckしてからcargo buildする
+
+ビルドの結果は
+target/debug/
+にある
 
 
-
-WebAssemblyについて
+# WebAssemblyについて
 
 
 
