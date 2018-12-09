@@ -42,6 +42,42 @@ cargoでプロジェクトを作る
 cargo new hello_cargo
 cd hello_cargo
 ```
+これで作られたファイルは
+
+Cargo.toml
+src/main.rc
+
+### build
+cargo を使ってbuildする
+
+```
+cargo build
+```
+実行できるファイルが生成されるので
+
+```
+./target/debug/hello_cargo
+```
+で実行すると
+```
+Hello, world!
+```
+
+cargo run
+で一回でそれらをやることができる
+
+cargo check
+実行ファイルを生成しないビルドが走る
+その分速いのでコードを書いて、開発過程で使うと便利
+実行はしない
+
+多くの開発者は
+コンパイルできるかcheckしてからcargo buildする
+
+ビルドの結果は
+target/debug/
+にある
+
 
 # WebAssemblyについて
 
