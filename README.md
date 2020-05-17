@@ -4,193 +4,106 @@
 
 [document](https://doc.rust-lang.org/stable/book/2018-edition/ch01-01-installation.html)
 
-#download
-curl https://sh.rustup.rs -sSf | sh
 
-# update
+### download
+```curl https://sh.rustup.rs -sSf | sh```
 
-rustup update
+### update
+```source $HOME/.cargo/env```
 
-# comfirm
+### comfirm
+```rustc --version```
 
-rustc --version
+### compile
+```rustc main.rs```
 
-# getting start
+### out
+```./main```
 
-cd hello_world
-
-# compile
-
-rustc main.rs
-
-# run
-
-./main
-
-# Cargo
-
-Cargo は Rust のビルドシステムでパッケージマネージャー
-ほとんどの Rust プログラマーはこのツールを使ってプロジェクト管理をしています
-コードの構築、コードが依存するライブラリのダウンロード、それらのライブラリの構築、
-等多くのタスクを処理します
-先ほどのコードは Cargo の一部部分を使用したが、もっと複雑になると依存関係が追加され、Cargo を追加した方が
-はるかに解決しやすくなります
-
-## check
+--add 2017/06/11
+[ref](https://kripken.github.io/emscripten-site/docs/tools_reference/emsdk.html#emsdk-howto)
 
 ```
-cargo --version
+cd emsdk-portable
+create .rs file
 ```
 
-### Creating a Project with Cargo
-
-cargo でプロジェクトを作る
+### compile
 
 ```
-cargo new hello_cargo
-cd hello_cargo
+rustc --target=wasm32-unknown-emscripten hello.rs -o hello.html
+rustc --target=wasm32-unknown-emscripten hello.rs -o hello.js
 ```
-これで作られたファイルは
+---
 
-Cargo.toml
-src/main.rc
+### WebAssemblyについて
+## Webassemblyとはなんですか？
+- webのバイナリ実行形式
+- 汎用の仮想アーキテクチャ
+- コンパイルターゲットはc, cpp, rs。コンパイルして.wasmを生成する
 
-### build
-cargo を使ってbuildする
+## それはつまり何？
+- JavaScriptの置き換え
+- プログラミング言語
+- 全ての動的言語に適したターゲット
 
-```
-cargo build
-```
-実行できるファイルが生成されるので
+## Webassemblyを選択する理由
+- 直接的なメモリへのアクセス
 
-```
-./target/debug/hello_cargo
-```
-で実行すると
-```
-Hello, world!
-```
+## なぜasm.jsを使わないのですか
+- いいところ jsだけ、速い
+- 悪いところ 非公式仕様 早さに支払えない 拡張のしにくさ 64bit整数
 
-cargo run
-で一回でそれらをやることができる
+## どうしてWebAssemblyなの？
+- asm.jsより小さい
+- より解析が速い
+- 拡張する自由
+- 公式仕様
 
-cargo check
-実行ファイルを生成しないビルドが走る
-その分速いのでコードを書いて、開発過程で使うと便利
-実行はしない
+## 使い所は ?
+- GameEngine
+- マルチメディア 画像/動画編集, 画像認識, ライブビデオ, CADアプリ
+- パフォーマンス プラットフォームシミレーション, パスワード保存, 圧縮,暗号化
+- ライブラリ OpenCV(コンピュータビジョン向けライブラリ。インテルが作成), Box2D(ゲームエンジン), LibSass, DICOM(医療用画像フォーマット)
+- 64-bit match (MAME, SHA512, 医療計算)
 
-多くの開発者は
-コンパイルできるかcheckしてからcargo buildする
-
-ビルドの結果は
-target/debug/
-にある
+## どのように使うの？
+- コンパイラーを使う
+  - オープンソースであるLLVM-basedでCとC++からJSへ
+  - オープンソースであるLLVM-basedでCとC++からasm.jsへ
+  - オープンソースであるLLVM-basedでCとC++からWebAssemblyへ
 
 
-これで作られたファイルは
+## Wasm
+- バイナリ再表現
 
-Cargo.toml
-src/main.rc
-
-### build
-
-cargo を使って build する
-
-```
-cargo build
-```
-
-実行できるファイルが生成されるので
-
-```
-./target/debug/hello_cargo
-```
-
-で実行すると
-
-```
-Hello, world!
-```
-
-cargo run
-で一回でそれらをやることができる
-
-cargo check
-実行ファイルを生成しないビルドが走る
-その分速いのでコードを書いて、開発過程で使うと便利
-実行はしない
-
-多くの開発者は
-コンパイルできるか check してから cargo build する
-
-ビルドの結果は
-target/debug/
-にある
-
-# WebAssembly について
-
-Webassembly とはなんですか？
-・web のバイナリ実行形式
-・汎用の仮想アーキテクチャ
-・コンパイルターゲットは c, cpp, rs。コンパイルして.wasm を生成する
-
-それはつまり何？
-・JavaScript の置き換え
-・プログラミング言語
-・全ての動的言語に適したターゲット
-
-Webassembly を選択する理由
-直接的なメモリへのアクセス
-
-なぜ asm.js を使わないのですか
-いいところ js だけ、速い
-悪いところ 非公式仕様 早さに支払えない 拡張のしにくさ 64bit 整数
-
-どうして WebAssembly なの？
-asm.js より小さい
-より解析が速い
-拡張する自由
-公式仕様
-
-使い所は ?
-GameEngine
-マルチメディア 画像/動画編集, 画像認識, ライブビデオ, CAD アプリ
-パフォーマンス プラットフォームシミレーション, パスワード保存, 圧縮,暗号化
-ライブラリ OpenCV(コンピュータビジョン向けライブラリ。インテルが作成), Box2D(ゲームエンジン), LibSass, DICOM(医療用画像フォーマット)
-64-bit match (MAME, SHA512, 医療計算)
-
-どのように使うの？
-コンパイラーを使う
-
-オープンソースである LLVM-based で C と C++から JS へ
-オープンソースである LLVM-based で C と C++から asm.js へ
-オープンソースである LLVM-based で C と C++から WebAssembly へ
-
-Wasm
-バイナリ再表現
-
-Wast
-テキスト再表現
+## Wast
+- テキスト再表現
 
 JavaScriptAPI
+
+```js
 fetch(‘half.wasm’)
 .then(data => data.arrayBuffer())
 .then(buf => WebAssembly.compile(buf))
 .then(mod => WebAssembly.instantiate(mod))
 .then(ins => alert(ins.exports.half(128)))
+```
 
-何しているの
-C や C++で書いたコードをバイナリデータに変換、コンパイルしたのちインスタンスを作りそのメソッドを実行
 
-上と同じことが
-Rust でもできる
+## 何しているの
 
-WebAssembly の未来は？
-複数スレッド
-SIMD(single instruction multiple data)命令は一つだがそれを複数のデータに適用する。並列化
-テスト機能
-GC/DOM/WebAPI 統合
+CやC++で書いたコードをバイナリデータに変換、コンパイルしたのちインスタンスを作りそのメソッドを実行
 
+上と同じことがRustでもできる
+
+## WebAssemblyの未来は？
+- 複数スレッド
+- SIMD(single instruction multiple data)命令は一つだがそれを複数のデータに適用する。並列化
+- テスト機能
+- GC/DOM/WebAPI統合
+
+```
 If you're a Native developer, (あなたがネイティブの開発者なら)
 the Web is just a compiler target away(web はコンパイラのターゲットに過ぎない)
 
@@ -198,39 +111,36 @@ If you're a Web developer, (あなたがウェブの開発者ならば)
 you can leverage the enormous world of native libraries.(あなたはネイティブライブラリの巨大な世界を活用できる)
 
 Both worlds have to learn from each other to make the most of this.(両方の世界はこれを最大限に活用するために学ばなければならない)
+```
 
-参照
+## 参照
 
-https://www.hellorust.com/codemotion-ams/slides/
+[hellorust.com](https://www.hellorust.com/)
 
-WebAssembly
-http://webassembly.org/
-
-WebAssembly info
-https://rsms.me/wasm-intro
+[WebAssembly](http://webassembly.org/)
 
 Rust を使って遊ぶ
 https://www.hellorust.com/
+[WebAssembly info](https://rsms.me/wasm-intro)
 
-RustBook
-https://doc.rust-lang.org/book/first-edition/README.html
+[Rustを使って遊ぶ](https://www.hellorust.com/)
 
----wip--
-rust をコンパイルするのが Emscripten
+[RustBook](https://doc.rust-lang.org/book/index.html)
 
-Emscripten はデフォルトで形式 asm.js を生成する
-asmjs は多くの場面でネイティブに近い速度で実行できる JavaScript のサブセットを高い最適化コードで
 
-Emscripten コードもまた同じくらいのネイティブコードに縮小される
+## ---wip--
+rustをコンパイルするのがEmscripten
 
-Emscripten Compiler Frontend(emcc)
-の setting が.emscripten ファイル
-で
-Emscripten SDK Manager(emsdk)
+- Emscriptenはデフォルトで形式asm.jsを生成する
+- asmjsは多くの場面でネイティブに近い速度で実行できるJavaScriptのサブセットを高い最適化コードで
+- Emscriptenコードもまた同じくらいのネイティブコードに縮小される
+- Emscripten  Compiler Frontend(emcc)のsettingが.emscriptenファイルでEmscripten SDK Manager(emsdk)
 
-Emcc は Clang を使用して C/C++ファイルを LLVM ビットコードに変換し、
-Fastcomp(Emscripten のコンパイラコア/LLVM のバックエンド)を使用してビットコードを JavaScript に変換します
-出力された JS は node.js やブラウザの html の中で実行できます
+- EmccはClangを使用してC/C++ファイルをLLVMビットコードに変換し、Fastcomp(Emscriptenのコンパイラコア/LLVMのバックエンド)を使用してビットコードをJavaScriptに変換します
+- 出力されたJSはnode.jsやブラウザのhtmlの中で実行できます
+
+- Emscripten SDKは複数のSDKとツールを管理するために使われ、現在のコードをコンパイルするために使用されている特定のSDK/ツールセットを指定するために使用されますGithubから最新のツールチェーンをインストール(ダウンロードしてビルド)することもできます
+
 
 Emscripten SDK は複数の SDK とツールを管理するために使われ、
 現在のコードをコンパイルするために使用されている特定の SDK/ツールセットを指定するために使用されます
