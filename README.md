@@ -1,5 +1,8 @@
+#see README.md in 201811 folder
+
 # RustPlayground
-https://doc.rust-lang.org/stable/book/2018-edition/ch01-01-installation.html
+
+[document](https://doc.rust-lang.org/stable/book/2018-edition/ch01-01-installation.html)
 
 
 ### download
@@ -87,6 +90,7 @@ fetch(‘half.wasm’)
 .then(ins => alert(ins.exports.half(128)))
 ```
 
+
 ## 何しているの
 
 CやC++で書いたコードをバイナリデータに変換、コンパイルしたのちインスタンスを作りそのメソッドを実行
@@ -101,7 +105,7 @@ CやC++で書いたコードをバイナリデータに変換、コンパイル�
 
 ```
 If you're a Native developer, (あなたがネイティブの開発者なら)
-the Web is just a compiler target away(webはコンパイラのターゲットに過ぎない)
+the Web is just a compiler target away(web はコンパイラのターゲットに過ぎない)
 
 If you're a Web developer, (あなたがウェブの開発者ならば)
 you can leverage the enormous world of native libraries.(あなたはネイティブライブラリの巨大な世界を活用できる)
@@ -115,6 +119,8 @@ Both worlds have to learn from each other to make the most of this.(両方の世
 
 [WebAssembly](http://webassembly.org/)
 
+Rust を使って遊ぶ
+https://www.hellorust.com/
 [WebAssembly info](https://rsms.me/wasm-intro)
 
 [Rustを使って遊ぶ](https://www.hellorust.com/)
@@ -135,3 +141,7 @@ rustをコンパイルするのがEmscripten
 
 - Emscripten SDKは複数のSDKとツールを管理するために使われ、現在のコードをコンパイルするために使用されている特定のSDK/ツールセットを指定するために使用されますGithubから最新のツールチェーンをインストール(ダウンロードしてビルド)することもできます
 
+
+Emscripten SDK は複数の SDK とツールを管理するために使われ、
+現在のコードをコンパイルするために使用されている特定の SDK/ツールセットを指定するために使用されます
+Github から最新のツールチェーンをインストール(ダウンロードしてビルド)することもできます
