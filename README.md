@@ -8,6 +8,12 @@
 ### download
 ```curl https://sh.rustup.rs -sSf | sh```
 
+### link pass
+
+```
+export PATH=$HOME/.cargo/bin:$PATH
+```
+
 ### update
 ```source $HOME/.cargo/env```
 
@@ -17,7 +23,7 @@
 ### compile
 ```rustc main.rs```
 
-### out
+### execute
 ```./main```
 
 --add 2017/06/11
