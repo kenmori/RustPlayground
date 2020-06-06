@@ -1,6 +1,0 @@
-[package]
-name = "myapp"
-version = "0.1.0"
-authors = ["moriken <>"]
-
-[dependencies]

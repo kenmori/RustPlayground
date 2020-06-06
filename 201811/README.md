@@ -1,3 +1,0 @@
-- write code in `anyfile.rc`
-- compile with `rustc anyfile.rc`
-- execute `./anyfile`

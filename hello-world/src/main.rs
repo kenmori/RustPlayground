@@ -1,15 +1,15 @@
-use actix_web::{web, App, HttpResponse, HttpServer, Responder};
+use acitix_web::{web, App, HttpResponse, HttpServer, Responder}
 
 async fn index() -> impl Responder {
-    HttpResponse::Ok().body("Hello World")
+    HttpResponse::Ok().body("Hello world")
 }
 
 async fn index2() -> impl Responder {
-    HttpResponse::Ok().body("Hello World again!")
+    HttpResponse::Ok().body("Hello world agein")
 }
 
-#[actix_rf::main]
-async fn main() -> std::io::Result<()>{
+
+async fn main() -> std::io::result<()>{
     HttpServer::new(|| {
         App::new()
             .route("/", web::get().to(index))

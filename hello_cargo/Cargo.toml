@@ -1,6 +1,0 @@
-[package]
-name = "hello_cargo"
-version = "0.1.0"
-authors = ["森田賢二 <kenjimoritata@gmail.com>"]
-
-[dependencies]
