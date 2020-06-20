@@ -1,153 +1,46 @@
-#see README.md in 201811 folder
+# 【WIP】Rust練習問題集(Rust practice questions)
 
-# RustPlayground
+<img src="https://kenjimorita.jp/wp-content/uploads/2017/01/ブログrust.png" width="500">
 
-[document](https://doc.rust-lang.org/stable/book/2018-edition/ch01-01-installation.html)
+[Author](https://kenjimorita.jp)
 
-
-### download
-```curl https://sh.rustup.rs -sSf | sh```
-
-### link pass
+ **読み進めるにあたって**
 
 ```
-export PATH=$HOME/.cargo/bin:$PATH
+- 問題文はfn main{}の中のコンテキストとする
+- 未使用のエラーを避けるためplaygroundではprintln!で出力しています
 ```
 
-### update
-```source $HOME/.cargo/env```
+**Q1**
 
-### comfirm
-```rustc --version```
+Declare the name and initialize it as a string (Hello world)
 
-### compile
-```rustc main.rs```
+(nameを宣言して文字列(`Hello world`)として初期化してください)
 
-### execute
-```./main```
-
---add 2017/06/11
-[ref](https://kripken.github.io/emscripten-site/docs/tools_reference/emsdk.html#emsdk-howto)
-
+**A1**
+```rust
+let name = "Hello world"
 ```
-cd emsdk-portable
-create .rs file
-```
-
-### compile
-
-```
-rustc --target=wasm32-unknown-emscripten hello.rs -o hello.html
-rustc --target=wasm32-unknown-emscripten hello.rs -o hello.js
-```
----
-
-### WebAssemblyについて
-## Webassemblyとはなんですか？
-- webのバイナリ実行形式
-- 汎用の仮想アーキテクチャ
-- コンパイルターゲットはc, cpp, rs。コンパイルして.wasmを生成する
-
-## それはつまり何？
-- JavaScriptの置き換え
-- プログラミング言語
-- 全ての動的言語に適したターゲット
-
-## Webassemblyを選択する理由
-- 直接的なメモリへのアクセス
-
-## なぜasm.jsを使わないのですか
-- いいところ jsだけ、速い
-- 悪いところ 非公式仕様 早さに支払えない 拡張のしにくさ 64bit整数
-
-## どうしてWebAssemblyなの？
-- asm.jsより小さい
-- より解析が速い
-- 拡張する自由
-- 公式仕様
-
-## 使い所は ?
-- GameEngine
-- マルチメディア 画像/動画編集, 画像認識, ライブビデオ, CADアプリ
-- パフォーマンス プラットフォームシミレーション, パスワード保存, 圧縮,暗号化
-- ライブラリ OpenCV(コンピュータビジョン向けライブラリ。インテルが作成), Box2D(ゲームエンジン), LibSass, DICOM(医療用画像フォーマット)
-- 64-bit match (MAME, SHA512, 医療計算)
-
-## どのように使うの？
-- コンパイラーを使う
-  - オープンソースであるLLVM-basedでCとC++からJSへ
-  - オープンソースであるLLVM-basedでCとC++からasm.jsへ
-  - オープンソースであるLLVM-basedでCとC++からWebAssemblyへ
+[playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=1ddad4761679165cc347d60ac455d36d)
 
 
-## Wasm
-- バイナリ再表現
+**Q2**
 
-## Wast
-- テキスト再表現
+Create the `add` function that takes x and y arguments of type i32, adds them and returns them, passes 1 and 2 to the function's arguments from main, executes it and println.
 
-JavaScriptAPI
+(i32型の引数xとyをとって加算して返す`add`関数を作り、mainからその関数の引数に1と2を渡し、実行し、printlnしてください)
 
-```js
-fetch(‘half.wasm’)
-.then(data => data.arrayBuffer())
-.then(buf => WebAssembly.compile(buf))
-.then(mod => WebAssembly.instantiate(mod))
-.then(ins => alert(ins.exports.half(128)))
+**A2**
+
+```rust
+fn add (x:i32, y:i32) -> i32 {
+    println!("{}, {}", x, y);
+    x + y
+} 
+fn main(){
+    let result = add(1, 2);
+    println!("{}", result)
+}
 ```
 
-
-## 何しているの
-
-CやC++で書いたコードをバイナリデータに変換、コンパイルしたのちインスタンスを作りそのメソッドを実行
-
-上と同じことがRustでもできる
-
-## WebAssemblyの未来は？
-- 複数スレッド
-- SIMD(single instruction multiple data)命令は一つだがそれを複数のデータに適用する。並列化
-- テスト機能
-- GC/DOM/WebAPI統合
-
-```
-If you're a Native developer, (あなたがネイティブの開発者なら)
-the Web is just a compiler target away(web はコンパイラのターゲットに過ぎない)
-
-If you're a Web developer, (あなたがウェブの開発者ならば)
-you can leverage the enormous world of native libraries.(あなたはネイティブライブラリの巨大な世界を活用できる)
-
-Both worlds have to learn from each other to make the most of this.(両方の世界はこれを最大限に活用するために学ばなければならない)
-```
-
-## 参照
-
-[hellorust.com](https://www.hellorust.com/)
-
-[WebAssembly](http://webassembly.org/)
-
-Rust を使って遊ぶ
-https://www.hellorust.com/
-[WebAssembly info](https://rsms.me/wasm-intro)
-
-[Rustを使って遊ぶ](https://www.hellorust.com/)
-
-[RustBook](https://doc.rust-lang.org/book/index.html)
-
-
-## ---wip--
-rustをコンパイルするのがEmscripten
-
-- Emscriptenはデフォルトで形式asm.jsを生成する
-- asmjsは多くの場面でネイティブに近い速度で実行できるJavaScriptのサブセットを高い最適化コードで
-- Emscriptenコードもまた同じくらいのネイティブコードに縮小される
-- Emscripten  Compiler Frontend(emcc)のsettingが.emscriptenファイルでEmscripten SDK Manager(emsdk)
-
-- EmccはClangを使用してC/C++ファイルをLLVMビットコードに変換し、Fastcomp(Emscriptenのコンパイラコア/LLVMのバックエンド)を使用してビットコードをJavaScriptに変換します
-- 出力されたJSはnode.jsやブラウザのhtmlの中で実行できます
-
-- Emscripten SDKは複数のSDKとツールを管理するために使われ、現在のコードをコンパイルするために使用されている特定のSDK/ツールセットを指定するために使用されますGithubから最新のツールチェーンをインストール(ダウンロードしてビルド)することもできます
-
-
-Emscripten SDK は複数の SDK とツールを管理するために使われ、
-現在のコードをコンパイルするために使用されている特定の SDK/ツールセットを指定するために使用されます
-Github から最新のツールチェーンをインストール(ダウンロードしてビルド)することもできます
+[playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=e2c9cba59d3c08926378ad2bcf9f62a6)
