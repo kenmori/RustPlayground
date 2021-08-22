@@ -172,3 +172,220 @@ An array is a homogenous sequence of elements.
 - シャドーイングができない
 
 
+型が違う数値をasで変換して足す
+
+```rust
+let c = a as u32 + b;
+```
+
+何度も使われるような定数はconst
+大文字のスネークケースで
+
+```rust
+const PI: f32 = 3.14159; // 型の指定は必要
+```
+
+
+関数に戻り値が指定されていない場合`()`が返される
+
+```rust
+fn a (){
+    // ()と推論される。()はunitと呼ばれる空のタプル
+}
+```
+
+以下は同じ意味。 ..= 演算子。`0..=5`はイテレータを作る
+
+```rust
+for x in 0..5 {
+    println!("{}", x);
+}
+
+for x in 0..=5 {
+    println!("{}", x);
+}
+```
+
+
+```rust
+match x {
+    0 => {
+        println!("found zero");
+    }
+    // 複数の値にマッチ
+    1 | 2 => {
+        println!("found 1 or 2!");
+    }
+    // 範囲にマッチ
+    3..=9 => {
+        println!("found a number 3 to 9 inclusively");
+    }
+    // マッチした数字を変数に束縛
+    matched_num @ 10..=100 => { // variables@で変数を作る
+        println!("found {} number between 10 to 100!", matched_num);
+    }
+    // どのパターンにもマッチしない場合のデフォルトマッチが必須
+    _ => {
+        println!("found something else!");
+    }
+}
+```
+
+loopで抜ける時はbreakで抜ける。その際に値を返せる
+
+```rust
+let v = loop {
+    x += 1;
+    if x == 11 {
+        break "find 11";
+    }
+};
+
+```
+
+`;`がないものがreturnされる
+
+```rust
+let v = {
+    let a = 1;
+    let b = 2;
+    a + b
+};
+println!("from block: {}", v);
+
+```
+
+static or instance
+
+```rust
+// static method - ある型そのものに紐付き、演算子::で呼び出せる
+
+// instance method - ある型のインスタンスに紐付き、演算子.で呼び出せる
+```
+
+3つのメモリ空間
+
+```rust
+// データメモリ・・・ 固定長もしくは スタティック (例: プログラムのライフサイクルで常に存在するもの)なデータ
+
+// スタックメモリ・・・関数内で宣言された変数。 関数が呼び出されている間は、メモリ上の位置は変更されることがない
+
+// ヒープメモリ・・・プログラムの実行時に作られるデータ。
+// データをヒープメモリに入れることをアロケーション(allocation)といい、
+// データをヒープメモリから削除することはディアロケーション(deallocation)と言います。
+```
+
+```rust
+// ユニットライクな構造体
+// Rust ではフィールドを持たない構造体を宣言できます。
+struct Marker;
+```
+
+
+```rust
+ // Result の Ok の中にある unit 値によって、
+    // すべてが正常であることを表現していることに注意してください。
+    Ok(())
+```
+
+
+簡潔なエラー処理
+
+```rust
+let v = do_something_that_might_fail()?
+// or
+match do_something_that_might_fail() {
+    Ok(v) => v,
+    Err(e) => return Err(e),
+}
+```
+
+unwrap()が何をしているか
+
+```rust
+// Option/Result 内の値を取得します。
+// 列挙型が None/Err の場合、panic! します。
+```
+
+
+```rust
+
+```
+> impl の後ろに <T> を宣言しています．こうすることで Point<T> の T がジェネリック型であることを明示しています．もし， impl<T> でなければ， Point<T> の T はジェネリック型ではなく T という名前の型を指定することになってしまいます
+
+
+```rust
+
+```
+
+
+> 同一オブジェクトに対する参照と可変について，いくつか制限
+
+> 不変参照 (&) は何個でも同時に存在することが出来る
+> 不変参照 (&) と可変参照 (&mut) は同時に存在することが出来ない。
+
+同時に定義された際に破棄される。その後破棄されたものを参照した場合エラー
+
+> 可変参照 (&mut) は同時に１つしか存在することが出来ない
+> 借用チェックは関数呼び出し時(かつコンパイル時)にされる
+- 借用チェック時に制約を満たしているかがポイント
+
+
+
+```rust
+
+```
+
+matchした際にエラー
+
+from
+
+```rust
+match x {
+    a => println!("{}", a); // ここでownerが変わっている
+}
+println!("{}", a); // error
+```
+
+to
+
+```rust
+match x {
+    Some(ref a) => println!("{}", a); // ここでownerが変わっている. // ref mut aとか
+}
+println!("{}", a); // error
+```
+
+```
+
+分解パターンの
+
+```rust
+  let a = Account { name: String::from("name"), pass: String::from("pass") };let Account { ref name, ref pass } = a;
+```
+
+
+if letで記述を簡潔に
+
+```rust
+if let Some(3) = some_u8_value {
+    println!("three");
+}
+```
+
+
+マッチガード
+
+```rust
+Some(x) if x < 5 => println!("less than five: {}", x),
+```
+
+
+```rust
+```
+
+
+ref:
+
+[Rust入門](https://zenn.dev/mebiusbox/books/22d4c1ed9b0003/viewer/8ccf20)
+[https://tourofrust.com/chapter_2_ja.html](https://tourofrust.com/chapter_2_ja.html)
