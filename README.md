@@ -379,7 +379,12 @@ let slice = &s[..]; //4
 
 **Q17**
 
+
 ```rust
+let _ = 42;
+
+// this calls `get_thing` but throws away its result
+let _ = get_thing();
 ```
 
 **A17**
