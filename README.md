@@ -38,7 +38,7 @@ Create the `add` function that takes x and y arguments of type i32, adds them an
 fn add (x:i32, y:i32) -> i32 {
     println!("{}, {}", x, y);
     x + y
-} 
+}
 fn main(){
     let result = add(1, 2);
     println!("{}", result)
@@ -82,13 +82,13 @@ fn main() {
 }
 ```
 
-はエラーが起きます。正しく治して、原因を教えてください
+はエラーが起きます。正しく修正して、原因を教えてください
 
 **A4**
 
 ブロック内にセミコロンを入れると文になります。
 ()と言う値が変数aに入ってしまう
-このaはprintln!マクロで表示ができないのでコンパイルエラーになります
+この`a`は`println!`マクロで表示ができないのでコンパイルエラーになります
 
 関数を式として扱った場合
 
@@ -104,6 +104,7 @@ fn main() {
 for文を使って1から10まで加算し、合計が代入されているsumを表示してください
 
 **A5**
+
 ```rust
 fn main() {
     let mut sum = 0;
@@ -113,7 +114,7 @@ fn main() {
     println!("sum is {}", sum);
     //sum is 45
 }
-```
+```     
 
 **Q6**
 このエラーを解決してください
@@ -389,9 +390,14 @@ let _ = get_thing();
 
 **A17**
 
-```rust
-```
+`vec!["a", "b"]`の値を順番に出力してください
 
+```rust
+   let values = vec!["a", "b"];
+    for val in values.iter() {
+        println!("{}", val)
+    }
+```
 
 **Q17**
 
