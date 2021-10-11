@@ -114,7 +114,7 @@ fn main() {
     println!("sum is {}", sum);
     //sum is 45
 }
-```     
+```
 
 **Q6**
 このエラーを解決してください
@@ -378,7 +378,7 @@ let slice = &s[..]; //4
 
 ```
 
-**Q17**
+**Q19**
 
 
 ```rust
@@ -388,7 +388,7 @@ let _ = 42;
 let _ = get_thing();
 ```
 
-**A17**
+**A19**
 
 `vec!["a", "b"]`の値を順番に出力してください
 
@@ -399,15 +399,89 @@ let _ = get_thing();
     }
 ```
 
-**Q17**
+**Q20**
+
+こちらのTODOを実装してください
+
+```rust
+let a = [1, 2, 3];
+
+let doubled: Vec<i32> = // TODO
+
+assert_eq!(vec![2, 4, 6], doubled);
+```
+
+[palyground](https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20a%20%3D%20%5B1%2C%202%2C%203%5D%3B%0A%0Alet%20doubled%3A%20Vec%3Ci32%3E%20%3D%20a.iter()%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.map(%7C%26x%7C%20x%20*%202)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.collect()%3B%0A%0Aassert_eq!(vec!%5B2%2C%204%2C%206%5D%2C%20doubled)%3B%0A%7D&edition=2018)
+
+[answer](https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20a%20%3D%20%5B1%2C%202%2C%203%5D%3B%0A%0Alet%20doubled%3A%20Vec%3Ci32%3E%20%3D%20a.iter()%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.map(%7C%26x%7C%20x%20*%202)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.collect()%3B%0A%0Aassert_eq!(vec!%5B2%2C%204%2C%206%5D%2C%20doubled)%3B%0A%7D&edition=2018)
+
+**Q22**
 
 ```rust
 ```
 
-**A17**
+[playground]()
+[answer]()
+
+
+**Q21**
 
 ```rust
 ```
+
+[playground]()
+[answer]()
+
+
+
+**Q21**
+
+```rust
+```
+
+[playground]()
+[answer]()
+
+
+
+**Q21**
+
+```rust
+```
+
+[playground]()
+[answer]()
+
+
+
+**Q21**
+
+```rust
+```
+
+[playground]()
+[answer]()
+
+
+
+**Q21**
+
+```rust
+```
+
+[playground]()
+[answer]()
+
+
+
+**Q21**
+
+```rust
+```
+
+[playground]()
+[answer]()
+
 
 
 **Q17**
